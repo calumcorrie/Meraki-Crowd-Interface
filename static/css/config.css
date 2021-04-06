@@ -1,0 +1,146 @@
+span.canvas_select{
+    margin: 20px auto;
+    display: block;
+    padding: 20px;
+    background-color: #e3e3e3;
+    width: min-content;
+    height: min-content;
+    cursor: crosshair;
+    overflow: hidden;
+    line-height: 0;
+    /*Suppress blue drag over select*/
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    position: relative;
+}
+
+span.canvas_select > span{
+    display: block;
+    position: absolute;
+    border: solid 1px blue;
+}
+
+#webhook_table {
+    text-align: left;
+    border: 1px #c6c6c6 solid;
+    width: 62%;
+    margin: 10px 24px;
+    padding: 0px 15px 15px;
+}
+
+#webhook_table td {
+    font-family: Times;
+    font-size: 15px;
+}
+
+#webhook_table td:nth-child(2){
+    text-align: center;
+    width: 64px;
+}
+
+#webhook_table th{
+    padding-bottom: 5px;
+    padding-top: 13px;
+}
+
+#webhook_list {
+    display: none;
+}
+
+#webhook_table th{
+    font-size: 20px;
+}
+
+#webhook_input {
+    width: 95%;
+    font-family: Times;
+    font-size: 18px;
+}
+
+#add_button {
+    padding: 0px 14px;
+}
+
+button.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: calc(100% - 20px);
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin: 6px 10px 0px;
+}
+
+button.active, 
+button.collapsible:hover {
+  background-color: #ccc;
+}
+
+div.content {
+  margin: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #eaeaea;
+  position: relative;
+}
+
+div.singleinput {
+  margin: 20px 24px;
+}
+
+#trashcanhidden {
+  display: none;
+}
+
+img.trashcan {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+div.endjustified {
+    text-align: right;
+    padding: 20px;
+}
+
+input.apply{
+    padding: 0px 40px;
+}
+
+input.topapply {
+    float:right;
+    margin: 20px;
+}
+
+#main h1 {
+    padding: 40px 20px 20px;
+    margin: 0px
+}
+
+hr {
+    clear:right;
+    margin: 0px 0px 15px;
+}
+
+p {
+    margin: 5px 24px;
+    font-size: 15px;
+}
+
+span.important {
+    color: #c00;
+}
+
+div.bd_buttnbox{
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    text-align: center;
+    line-height: 40px;
+    transform: translate(-50%,-50%);
+}

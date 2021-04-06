@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    font-family: Helvetica, verdana, sans-serif;
+    font-weight: 200;
+    color: #666;
+    background-color: #f0f0f0;
+}
+
+body a {
+    color: #549AC8;
+    text-decoration: none;
+}
+
+#main {
+    width: 70%;
+    margin: 70px auto;
+    background-color: #fdfdfd;
+}
+
+input[type="submit"],
+input[type="button"] {
+	height: 32px;
+	border: 0;
+	border-radius: 2px;
+	color: white;
+	background: #67B346;
+	margin-top: 1px;
+    cursor: pointer;
+}

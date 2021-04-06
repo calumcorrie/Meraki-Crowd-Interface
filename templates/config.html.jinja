@@ -1,0 +1,186 @@
+{% extends "base.html.jinja" %}
+
+{% block head %}
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/config.css') }}"/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cameraFOV.css') }}"/>
+
+		<style>
+{% for bdobj in context.bounds %}
+			#bd_in_{{loop.index0}} > img {
+				height: {{ bdobj.im_h }}px;
+				width: {{ bdobj.im_w }}px;
+			}
+{% endfor %}
+
+{% for fov_obj in  context.cameraFOVs %}
+			#gsel_{{fov_obj._id}} {
+				background-image: url({{fov_obj.fp.img}});
+				/*Width Height*/
+				background-size: {{fov_obj.fp.plandims[1]}}% {{fov_obj.fp.plandims[0]}}%;
+			}
+{% endfor %}
+		</style>
+		
+		<script defer="defer" type="text/javascript" src="{{ url_for('static', filename='js/collapse.js') }}"></script>
+		<script defer="defer" type="text/javascript" src="{{ url_for('static', filename='js/zoner.js') }}"></script>
+		<script defer="defer" type="text/javascript" src="{{ url_for('static', filename='js/bd_conf.js') }}" ></script>
+		<script defer="defer" type="text/javascript" src="{{ url_for('static', filename='js/webhook_sel.js') }}" ></script>
+{% endblock %}
+
+{% block main %}
+			<form id="config_form" action="{{ url_for('configuration') }}" method="post">
+			<input class="apply topapply" type="submit" value="Apply" form="config_form">
+			<h1>Network</h1>
+			<hr/>
+
+			{# Network Input #}
+			<p>Select the network to model<br/><span class="important">Note: Only data from the selected network will be recorded</span></p>
+			<div class="singleinput">
+				<label for="netSelect">Select a Network</label>
+				<select name="network" id="network">
+					{% for network in context.networks %}
+						{% if network.id == context.net_selected %}
+							<option value="{{ network.id }}" selected>{{ network.name }}</option>
+						{% else %}
+							<option value="{{ network.id }}">{{ network.name }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+
+			<p>Set the Scanning API secret</p>
+			<div class="singleinput">
+				<label for="sapisecret">Enter secret: </label>
+				<input type="text" id="sapisecret" name="sapisecret" value="{{ context.secret }}"/>
+			</div>
+
+			<p>Set the Validator Token</p>
+			<div class="singleinput">
+				<label for="validtoken">Enter token: </label>
+				<input type="text" id="validator_token" name="validator_token" value="{{ context.token }}"/>
+			</div>
+
+			<p>Set the admin password</p>
+			<div class="singleinput">
+				<label for="newpassword">Change password: </label>
+				<input id="newpassword" name="password" type="password" value="{{context.password}}"/>
+			</div>
+
+			{# Webhook input #}
+			<table id="webhook_table">
+				<thead>
+					<tr>
+						<th colspan=2>Spike Detection</th>
+					</tr>
+					<tr>
+						<td colspan=2><p>When the algorithm detects a crowd, an alert will be sent to these addresses for integration into other systems<br/>You can tweak the activation threshold here</p></td>
+					</tr>
+					<tr>
+						<td colspan=2>Threshold value:<input type="number" name="webhook_thresh" step="0.01" value="{{context.wh_threshold}}"/></td>
+					</tr>
+					<tr>
+						<th colspan=2>Webhook Targets</th>
+					</tr>
+				</thead>
+				<tbody>
+{% for address in context.webhooks %}
+					<tr id="row_{{loop.index0}}">
+						<td>{{address}}</td>
+						<td><img class="trashcan" src="{{url_for('static',filename='img/delete-24px.svg')}}" /></td>
+					</tr>
+{% endfor %}
+					<tr>
+						<td><input id="webhook_input" placeholder="https://example.com/destination"/></td>
+						<td><input id="add_button" type="button" value="Add"/></td>
+					</tr>
+				</tbody>
+			</table>				
+			<h1>Bounds Detection</h1>
+			<hr/>
+			<p>Meraki Crowd has the option to ignore observations outwith your floorplan.
+			<br/>This can be enabled and disabled per floor plan with the toggle switch.
+			<br/>If there is writing on your floorplan, drag a box over it and hit refresh. Anything green will be ignored by the algorithm.
+			</p>
+
+			{# Boundaries input #}
+{% for bdobj in context.bounds %}
+			<button type="button" class="collapsible">{{bdobj.name}}</button>
+			<div class="content">
+				<span id="bd_in_{{loop.index0}}" class="canvas_select">
+					<img src="{{bdobj.img}}"/>
+{% for box in bdobj.coords %}
+					<span style="top:{{box[0]+20}}px;left:{{box[1]+20}}px; height:{{box[2]-box[0]}}px; width:{{box[3]-box[1]}}px;"></span>
+{% endfor %}
+				</span>
+				<div class="bd_buttnbox">
+					<input type="checkbox" id="enabled_{{loop.index0}}" name="enable_{{bdobj._id}}" {% if bdobj.masked %}checked="checked"{% endif %} />
+  					<label for="enabled_{{loop.index0}}">Enabled</label><br/>
+					<input type="button" value="Refresh"/><br/>
+					<input type="button" value="Erase"/>
+				</div>
+			</div>
+{% endfor %}
+			<h1>Cameras</h1>
+			<hr/>
+			{# Camera FOV Input#}
+{% for fov_obj in context.cameraFOVs %}
+			<button type="button" class="collapsible">{{fov_obj.serial}} @ {{fov_obj.fp.name}}</button>
+			<div class="content">
+				<table id="gsel_{{fov_obj._id}}" class="zoneselect">
+{% for y in range(fov_obj.fp.dims[0]) %}
+					<tr>
+{% for x in range(fov_obj.fp.dims[1]) %}
+						<td onclick="select({{fov_obj._id}},this,{{x}},{{y}})" {% if fov_obj.FOV[y,x] == 1%}class="selected"{% endif %}></td>
+{% endfor %}
+					</tr>
+{% endfor %}
+				</table>
+			</div>
+{% endfor %}
+
+			{# Hidden webhooklist element #}
+			<img id="trashcanhidden" class="trashcan" src="{{url_for('static',filename='img/delete-24px.svg')}}" />
+
+			{# Hidden data continers #}
+
+			<select name="webhook_list" id="webhook_list" multiple="multiple">
+				{% for address in context.webhooks %}
+					<option id="op_{{loop.index0}}" value="{{address}}" selected="selected">{{address}}</option>
+				{% endfor %}
+			</select>
+
+			{% for fov_obj in context.cameraFOVs %}
+				<select name="input_FOV_{{fov_obj.mac}}" id="input_FOV_{{fov_obj._id}}" class="zoneinput" multiple="multiple">
+					{% for y in range(fov_obj.fp.dims[0]) %}
+						{% for x in range(fov_obj.fp.dims[1]) %}
+							<option id="selectcell_{{x}}_{{y}}" value="{{x}}_{{y}}" {% if fov_obj.FOV[y,x] == 1 %}selected="selected"{% endif %}>{{x}},{{y}}</option>
+						{% endfor %}
+					{% endfor %}
+				</select>
+			{% endfor %}
+
+			{% for bdobj in context.bounds %}
+				<input id="bm_box_{{loop.index0}}" name="bm_box_{{bdobj._id}}" type="hidden" value=""/>
+			{% endfor %}
+
+			<div class="endjustified">
+				<input class="apply" type="submit" value="Apply" form="config_form">
+			</div>
+			</form>
+{% endblock %}
+
+{% block foot %}
+		<script>
+			var bdinputs = [
+{% for bdobj in context.bounds %}
+				"{{ url_for('prime_bd', imgFPID=bdobj._id) }}"{%if not loop.last%}, {%endif%}
+{% endfor %}
+			];
+			var option_index={{context.webhooks|length}};
+			var selectors = [
+{% for fov_obj in context.cameraFOVs %}
+				{ id:{{fov_obj._id}}, ar:{{fov_obj.fp.ar}} }{%if not loop.last%},{% endif %}
+{% endfor %}
+			];
+		</script>
+{% endblock %}

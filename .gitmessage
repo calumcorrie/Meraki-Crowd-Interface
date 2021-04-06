@@ -1,0 +1,34 @@
+# REPLACE ONLY THE <here> TOKENS WITH TEXT
+# Lines prefixed # will be discarded on commit
+# Prefix title with WIP: to prevent merging "Work In Progress"s
+##################################################
+<title no longer than line above>
+
+# Answer the questions about the commit, wrap around at line below
+########################################################################
+Motivation:
+# e.g. "Bug fix" or "Feature <x> introduction/development"
+<here>
+
+Changes:
+# What has been changed in the codebase, docs, unit tests, etc?
+# Use markdown for bullet lists
+# e.g.
+# - Added infinite improbability drive
+# - Updated docs and tests
+# - Side effect xyz
+<here>
+
+Issues:
+# Related or parent issues. Include here any related Merge Requests
+# e.g. "Relates to issue #42" or "Closes #42" or "CR fix for  MR !4"
+<here>
+
+Notes:
+# Additional notes, observations, etc. Tag users as @<GUID>
+<here>
+
+# To finish commit, <esc> :wq <enter>
+#   or close tab in IDE
+# To abort commit, <esc> :q! <enter>
+#   or File > Revert File in IDE then close tab

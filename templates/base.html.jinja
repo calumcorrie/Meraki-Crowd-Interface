@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{context.get('title')}}</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/headerbar.css') }}"/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}"/>
+{% block head %}
+{% endblock %}
+	</head>
+	<body>
+{% include "headerbar.html.jinja" %}
+{% block main_wide %}
+		<div id="main">
+{% block main %}
+{% endblock %}
+		</div>
+{% endblock %}
+{% block foot %}
+{% endblock %}
+	</body>
+</html>

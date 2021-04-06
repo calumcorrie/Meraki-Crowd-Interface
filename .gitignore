@@ -1,0 +1,23 @@
+# Python Files
+*.pyc
+__pycache__/
+lib/__pycache__/
+# VSCode
+.vscode/
+# Meraki
+*.log
+# Pytest
+.pytest_cache/
+pytests/__pycache__/
+# Coverage datafile
+.coverage
+htmlcov/
+# APIQuery Cache
+static/img/floorplans/
+historical_data/
+# Model settings
+model.conf
+# Legacy
+cache/
+lib/cache/
+lib/historical_data/

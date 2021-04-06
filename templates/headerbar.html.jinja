@@ -1,0 +1,17 @@
+        <div id="headerbar">
+            <span>
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/cmlogo.png') }}" alt="Cisco Meraki Logo"/>
+                </a>
+            </span>
+            <span>
+                <h1>Crowd Interface{% if "title" in context.keys() %} | {{ context.title }} {% endif %}</h1>
+            </span>
+            <span class="end">
+{% if context.auth %}
+                <a href="{{url_for('signout')}}">Sign out</a>
+                |
+{% endif %}
+                <a href="{{url_for('configuration')}}">Settings</a>
+            </span>
+        </div>

@@ -1,0 +1,27 @@
+select.zoneinput{
+    display: none;
+}
+
+table.zoneselect{
+    border-collapse: collapse;
+    background-repeat: no-repeat;
+    width: 400px;
+}
+
+table.zoneselect td{
+    background-color: #0000;
+    border-width: 0px;
+    padding: 0px;
+}
+
+table.zoneselect td:hover{
+    background-color: #34ff186b;
+}
+
+table.zoneselect td.selected:hover{
+    background-color: #ff46186b;
+}
+
+table.zoneselect td.selected{
+    background-color: #6e85ff96;
+}

@@ -1,0 +1,32 @@
+{% extends "base.html.jinja" %}
+
+{% block head %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/authenticate.css') }}"/>
+{% endblock %}
+
+{% block main_wide %}
+        <div class="message">
+            <form id="login" method="post" action="{{request.path}}">
+                <table>
+                    <thead></thead>
+                    <tbody>
+                        <tr><td>
+                            <label for="pass">Password</label>
+                        </td></tr>
+                        <tr><td>
+                            <input id="pass" type="password" name="pass" value="" autofocus="autofocus"/>
+                        </td></tr>
+                        <tr><td>
+{% if context.error %}
+                            <img src="{{url_for('static',filename='img/error_outline_red-24px.svg')}}" />
+                            <p>{{context.error}}</p>
+                        </td></tr>
+                        <tr><td>
+{% endif %}
+                            <input type="submit" value="Authenticate" />
+                        </td></tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+{% endblock %}

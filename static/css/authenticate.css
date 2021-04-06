@@ -1,0 +1,46 @@
+div.message {
+	background-color: #fafafa;
+	width: 25%;
+	min-height: 150px;
+	margin: 10% auto;
+	border-radius: 2px;
+}
+
+#login, #login > table {
+	width: 100%;
+	height: 100%;
+}
+
+#login > table {
+	padding: 14px 19px;
+}
+
+#login > table td {
+	padding: 5px 0px; 
+}
+
+#login input[type="submit"] {
+	height: 32px;
+	border: 0;
+	border-radius: 2px;
+	color: white;
+	background: #67B346;
+	margin-top: 1px;
+}
+
+#login input[type="password"] {
+	/*Dunno why 5px*/
+	width: calc(100% - 5px);
+}
+
+#login p {
+	display: inline-block;
+	margin: 0px;
+	position: relative;
+	top: -4px;
+	color: red;
+}
+
+#login img {
+	height: 20px;
+}

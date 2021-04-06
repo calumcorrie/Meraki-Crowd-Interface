@@ -1,0 +1,13 @@
+{% extends "base.html.jinja" %}
+
+		{% block head %}
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/heatmap.css') }}"/>
+		<script defer="defer" type="text/javascript" src="{{ url_for('static', filename='js/portal.js') }}" ></script>
+		{% endblock %}
+
+		{% block main %}
+			<input type="submit" value="Refresh" onclick="reloadImage()" />
+			<input type="submit" value="Stop" onclick="stop()" />
+			<input type="submit" value="Go" onclick="start()" />
+			<img id="portal" src="{{ context.portal_src }}" alt="Live Data Feed"/>
+        {% endblock %}

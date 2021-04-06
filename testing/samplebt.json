@@ -1,0 +1,113 @@
+{
+    "version":"3.0",
+    "secret":"itsasecret",
+    "type":"Bluetooth",
+    "data":{
+        "networkId":"L_631066897785298299",
+        "startTime":"2021-01-16T01:39:06Z",
+        "reportingAps":[
+            {
+                "serial":"Q2RD-HASX-5S3G",
+                "mac":"2c:3f:0b:b0:62:da",
+                "name":"C's AP",
+                "lng":-4.295876920223237,
+                "tags":[],
+                "floorPlan":{
+                    "id":"g_631066897785293913",
+                    "name":"Ms gaff",
+                    "x":15.887224055917347,
+                    "y":15.2265890254764
+                },
+                "lat":55.803226071889895
+            },
+            {"serial":"Q2RD-MRGE-DRSY","mac":"2c:3f:0b:b0:cf:9a","name":"G AP","lng":-4.27607635036111,"tags":[],"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":4.567933000428413,"y":6.245066583904882},"lat":55.871174549605136},
+            {"serial":"Q2RD-E8EZ-8LPS","mac":"2c:3f:0b:b0:17:a3","name":"MG's AP","lng":-4.295968115329743,"tags":[],"floorPlan":{"id":"g_631066897785293913","name":"Ms gaff","x":10.741305386596125,"y":12.009306660775767},"lat":55.80320722813292},
+            {"serial":"Q2RD-EHCT-35KQ","mac":"2c:3f:0b:b0:1e:ab","name":"G AP3","lng":-4.276106022298337,"tags":[],"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":1.896246564405462,"y":6.499532151227967},"lat":55.87119204369371},
+            {"serial":"Q2RD-GT5M-NXXB","mac":"2c:3f:0b:b0:57:09","name":"G AP2","lng":-4.276121947914363,"tags":[],"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":1.7155300898536954,"y":5.193380648766266},"lat":55.87118423719278},
+            {"serial":"Q2RD-EHDZ-YMQM","mac":"2c:3f:0b:b0:1e:b5","name":"MGAP2","lng":-4.295828640460969,"tags":[],"floorPlan":{"id":"g_631066897785293913","name":"Ms gaff","x":18.967566650332117,"y":15.229814315141649},"lat":55.803220418763765}
+        ],
+        "endTime":"2021-01-16T01:40:06Z",
+        "observations":[
+            {
+                "locations":[],
+                "name":"",
+                "bleBeacons":[{"uuid":"9069397b-85c7-4a38-9fbf-f2905a2b6242","txPower":-59,"major":0,"bleType":"iBeacon","minor":5}],"clientMac":"60:77:71:93:60:b1",
+                "latestRecord": {"time":"2021-01-16T01:39:58Z","nearestApMac":"2c:3f:0b:b0:57:09","nearestApRssi":-61}
+            },{
+                "locations":[
+                    {
+                        "lng":-4.2760953635232966,
+                        "rssiRecords": [
+                            {"apMac":"2c:3f:0b:b0:1e:ab","rssi":-74},
+                            {"apMac":"2c:3f:0b:b0:57:09","rssi":-79},
+                            {"apMac":"2c:3f:0b:b0:cf:9a","rssi":-79}
+                        ],
+                        "variance":1.5348548138619709,
+                        "floorPlan":{
+                            "id":"g_631066897785293932",
+                            "name":"Gs Gaff",
+                            "x":2.0060374085914203,
+                            "y":7.386567044007011
+                        },
+                        "nearestApMac":"2c:3f:0b:b0:1e:ab",
+                        "time":"2021-01-16T01:39:06Z",
+                        "lat":55.87119742159575
+                    },
+                    {"lng":-4.276091303601817,"rssiRecords":[{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-75},{"apMac":"2c:3f:0b:b0:57:09","rssi":-79},{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-79}],"variance":1.5165679811044213,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":2.411716258783436,"y":7.305563072563496},"nearestApMac":"2c:3f:0b:b0:1e:ab","time":"2021-01-16T01:39:37Z","lat":55.87119447743591},
+                    {"lng":-4.2760953635232966,"rssiRecords":[{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-74},{"apMac":"2c:3f:0b:b0:57:09","rssi":-79},{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-79}],"variance":1.5348548138619709,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":2.0060374085914203,"y":7.386567044007011},"nearestApMac":"2c:3f:0b:b0:1e:ab","time":"2021-01-16T01:39:47Z","lat":55.87119742159575},
+                    {"lng":-4.2760953635232966,"rssiRecords":[{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-74},{"apMac":"2c:3f:0b:b0:57:09","rssi":-79},{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-79}],"variance":1.5348548138619709,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":2.0060374085914203,"y":7.386567044007011},"nearestApMac":"2c:3f:0b:b0:1e:ab","time":"2021-01-16T01:40:00Z","lat":55.87119742159575}
+                ],
+                "name":"",
+                "bleBeacons":[{"rawData":"","bleType":"unknown"}],
+                "clientMac":"0c:96:e6:28:14:ee",
+                "latestRecord":{
+                    "time":"2021-01-16T01:39:57Z",
+                    "nearestApMac":"2c:3f:0b:b0:1e:ab",
+                    "nearestApRssi":-74
+                }
+            },{
+                "locations":[
+                    {"lng":-4.276099741000905,"rssiRecords":[{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-90},{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-93},{"apMac":"2c:3f:0b:b0:57:09","rssi":-93}],"variance":1.805527728489019,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":2.2922783750640816,"y":6.640840140576591},"nearestApMac":"2c:3f:0b:b0:1e:ab","time":"2021-01-16T01:39:07Z","lat":55.871190666661526},
+                    {"lng":-4.276098047915639,"rssiRecords":[{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-92},{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-93},{"apMac":"2c:3f:0b:b0:57:09","rssi":-93}],"variance":1.6444849555138226,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":2.9567415300985807,"y":6.036887220507152},"nearestApMac":"2c:3f:0b:b0:1e:ab","time":"2021-01-16T01:39:22Z","lat":55.87118264295421},
+                    {"lng":-4.276099741000905,"rssiRecords":[{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-90},{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-93},{"apMac":"2c:3f:0b:b0:57:09","rssi":-93}],"variance":1.805527728489019,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":2.2922783750640816,"y":6.640840140576591},"nearestApMac":"2c:3f:0b:b0:1e:ab","time":"2021-01-16T01:39:36Z","lat":55.871190666661526},
+                    {"lng":-4.2760965299103475,"rssiRecords":[{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-91},{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-93},{"apMac":"2c:3f:0b:b0:57:09","rssi":-93}],"variance":1.7066214364585883,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":2.689260870944405,"y":6.489141381910981},"nearestApMac":"2c:3f:0b:b0:1e:ab","time":"2021-01-16T01:39:51Z","lat":55.87118729357724}
+                ],
+                "name":"",
+                "bleBeacons":[{"rawData":"10096d6b2e43383845364341323635443703196e1702010605ff6e170add","bleType":"unknown"}],
+                "clientMac":"c8:8e:6c:a2:65:d7",
+                "latestRecord":{"time":"2021-01-16T01:39:51Z","nearestApMac":"2c:3f:0b:b0:1e:ab","nearestApRssi":-91}
+            },{
+                "locations":[],
+                "name":"",
+                "bleBeacons":[{"uuid":"9069397b-85c7-4a38-9fbf-f2905a2b6242","txPower":-59,"major":0,"bleType":"iBeacon","minor":4}],
+                "clientMac":"60:77:71:91:5f:3f",
+                "latestRecord":{"time":"2021-01-16T01:40:00Z","nearestApMac":"2c:3f:0b:b0:1e:ab","nearestApRssi":-61}
+            },{
+                "locations":[
+                    {"lng":-4.276100387445354,"rssiRecords":[{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-86},{"apMac":"2c:3f:0b:b0:57:09","rssi":-85},{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-86}],"variance":1.6424570496896091,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":2.979393062464994,"y":5.7883705441055096},"nearestApMac":"2c:3f:0b:b0:57:09","time":"2021-01-16T01:39:11Z","lat":55.871180821074944},
+                    {"lng":-4.276093203551426,"rssiRecords":[{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-85},{"apMac":"2c:3f:0b:b0:57:09","rssi":-86},{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-86}],"variance":1.5868767224673874,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":3.3665800151814222,"y":6.025678739561685},"nearestApMac":"2c:3f:0b:b0:cf:9a","time":"2021-01-16T01:39:21Z","lat":55.871180148380645},
+                    {"lng":-4.276093203551426,"rssiRecords":[{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-85},{"apMac":"2c:3f:0b:b0:57:09","rssi":-86},{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-86}],"variance":1.5868767224673874,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":3.3665800151814222,"y":6.025678739561685},"nearestApMac":"2c:3f:0b:b0:cf:9a","time":"2021-01-16T01:39:31Z","lat":55.871180148380645},
+                    {"lng":-4.276093203551426,"rssiRecords":[{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-85},{"apMac":"2c:3f:0b:b0:57:09","rssi":-86},{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-86}],"variance":1.5868767224673874,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":3.3665800151814222,"y":6.025678739561685},"nearestApMac":"2c:3f:0b:b0:cf:9a","time":"2021-01-16T01:39:41Z","lat":55.871180148380645},
+                    {"lng":-4.276096601447989,"rssiRecords":[{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-85},{"apMac":"2c:3f:0b:b0:57:09","rssi":-85},{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-86}],"variance":1.6159669402209373,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":3.2237235278717087,"y":5.867066356646297},"nearestApMac":"2c:3f:0b:b0:cf:9a","time":"2021-01-16T01:39:51Z","lat":55.87117991388875},
+                    {"lng":-4.276096601447989,"rssiRecords":[{"apMac":"2c:3f:0b:b0:cf:9a","rssi":-85},{"apMac":"2c:3f:0b:b0:57:09","rssi":-85},{"apMac":"2c:3f:0b:b0:1e:ab","rssi":-86}],"variance":1.6159669402209373,"floorPlan":{"id":"g_631066897785293932","name":"Gs Gaff","x":3.2237235278717087,"y":5.867066356646297},"nearestApMac":"2c:3f:0b:b0:cf:9a","time":"2021-01-16T01:40:01Z","lat":55.87117991388875}
+                ],
+                "name":"",
+                "bleBeacons":[{"rawData":"020106020800030361fe10ff030000301600000d94f6d644044012","bleType":"unknown"}],
+                "clientMac":"88:c6:26:52:e0:1c",
+                "latestRecord":{"time":"2021-01-16T01:39:59Z","nearestApMac":"2c:3f:0b:b0:57:09","nearestApRssi":-85}
+            },{
+                "locations":[],
+                "name":"",
+                "bleBeacons":[{"rawData":"0201001bff750042040101af78bdbc59f21f7abdbc59f21e0b000000000000","bleType":"unknown"}],
+                "clientMac":"78:bd:bc:59:f2:1f",
+                "latestRecord":{"time":"2021-01-16T01:39:08Z","nearestApMac":"2c:3f:0b:b0:57:09","nearestApRssi":-95}
+            },{
+                "locations":[],
+                "name":"",
+                "bleBeacons":[{"uuid":"9069397b-85c7-4a38-9fbf-f2905a2b6242","txPower":-59,"major":0,"bleType":"iBeacon","minor":2}],
+                "clientMac":"60:77:71:90:00:c6",
+                "latestRecord":{"time":"2021-01-16T01:39:57Z","nearestApMac":"2c:3f:0b:b0:57:09","nearestApRssi":-60}
+            }
+        ]
+    }
+}
