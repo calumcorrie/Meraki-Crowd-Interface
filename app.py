@@ -4,14 +4,13 @@ import io
 import time
 from flask import Flask, request, render_template, send_file, redirect, abort, Response, session
 from flask.helpers import url_for
-from pprint import pformat
 import numpy as np
 from PIL import Image
 import random
 import string
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-from lib.Model import Model, Floor
+from lib.Model import Model, Floor, sha256
 from lib.APIQuery import Camera, FloorPlan
 
 POST = "POST"
@@ -20,6 +19,7 @@ SESSION_AUTH = "auth"
 LOGIN_ATTEMPTS_KEY = "login_attempts"
 LOGIN_ATTEMPTS = 4
 COOLDOWN_S = 30 # Deploy 120
+ANTI_BF_S = 0.2
 
 class FPWrapper:
     def __init__(self,FPID:str):
@@ -119,7 +119,7 @@ def serialize_form(form_dict) -> dict:
     conf_dict[Model.STORE_TOKEN] = form_dict.get("validator_token")
     conf_dict[Model.STORE_WEBHOOK] = form_dict.getlist("webhook_list")
     conf_dict[Model.STORE_WHTHRESHOLD] = float(form_dict.get("webhook_thresh"))
-    conf_dict[Model.STORE_PASSWORD] = form_dict.get("password")
+    conf_dict[Model.STORE_PASSWORD] = sha256(form_dict.get("password"))
 
     conf_dict[Model.STORE_FOVCOORDS] = dict()
     for cam in mod.query_obj.cameras.values():
@@ -212,8 +212,10 @@ def challenge():
     errstr = locked if time_blocked else ""
 
     if request.method == POST:
-        password = request.form.get("pass")
+        password = sha256(request.form.get("pass"))
         left = session.get(LOGIN_ATTEMPTS_KEY)
+        # Bruteforce protection
+        time.sleep(ANTI_BF_S)
         if password == mod.password and not (left==0) and not time_blocked:
             authenticate()
             session.pop(LOGIN_ATTEMPTS_KEY,None)
@@ -249,8 +251,6 @@ def sapi():
         return mod.validator_token
     else:
         gotjson = request.get_json(force=True)
-        with open("dump.json","w") as fd:
-            fd.write(pformat(gotjson))
         
         try:
             mod.provide_scanning(gotjson)
