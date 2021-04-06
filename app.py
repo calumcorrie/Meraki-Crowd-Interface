@@ -19,7 +19,8 @@ GET = "GET"
 SESSION_AUTH = "auth"
 LOGIN_ATTEMPTS_KEY = "login_attempts"
 LOGIN_ATTEMPTS = 4
-COOLDOWN_S = 30 # Deploy 120
+COOLDOWN_S = 120
+ANTI_BF_S = 0.2
 
 class FPWrapper:
     def __init__(self,FPID:str):
@@ -80,7 +81,7 @@ print("Model has reset")
 
 app = Flask(__name__)
 #Note this is how the CRSF tokens and sessions are generated, should be random in production
-app.secret_key = 'development key'
+app.secret_key = b'B\xc5\x92\xac\x02\x07\xbew\xb5U\x19\x13\x8c\xfc\xa7\xb37E\xf8\x87\xb3\xe3!\xf2'
 
 def get_Floorplan_Menu() -> list:
     return [ FPMenuOpt(fpid) for fpid in mod.plans.keys() ]
@@ -263,14 +264,6 @@ def sapi():
             #If we don't return something, the WSGI gods will smite us
             return "OK"
 
-@app.route("/debug/<imgFPID>/<noop>")
-def debug_overlay(imgFPID,noop):
-    if imgFPID not in mod.plans.keys():
-        abort(400)
-
-    img = mod.debug_render(imgFPID)
-    return send_image(img,True)
-
 @app.route("/render/<imgFPID>/<noop>")
 def render_overlay(imgFPID,noop):
     if imgFPID not in mod.plans.keys():
@@ -278,23 +271,6 @@ def render_overlay(imgFPID,noop):
 
     img = mod.render_delta(imgFPID)
     return send_image(img,True)
-
-@app.route("/live/<imgFPID>/<noop>")
-def render_live(imgFPID,noop):
-    if imgFPID not in mod.plans.keys():
-        abort(400)
-    img = mod.render_abs(imgFPID)
-    return send_image(img,True)
-
-@app.route("/pull/<fpid>")
-def report(fpid):
-    # Spew
-    rep = mod.comp_historical(fpid)
-    g = "<html><body><p style=\"font-family: Courier; font-size:12px;\">"
-    g += "<br/>".join(["".join(["  {:+.4f}".format(c) for c in row]) for row in rep ])
-    g += "<br/>Max = {:.3f} Min = {:.3f}".format(rep.max(),rep.min())
-    g += "</p></body></html>"
-    return g
 
 @app.route("/ajax/<key>")
 def getajax(key):

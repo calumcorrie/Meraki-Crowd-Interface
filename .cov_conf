@@ -1,4 +1,0 @@
-[run]
-branch = True
-data_file = ${TARGET}
-source = lib
