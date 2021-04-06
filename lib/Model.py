@@ -6,6 +6,7 @@ import bz2
 import pickle
 import datetime
 import requests
+import hashlib
 
 parentddir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 sys.path.append(parentddir)
@@ -394,7 +395,7 @@ class Model:
     # I wish I was kidding
     # This is 0.707 iff cell_s_m = 1
     DEFAULT_EXPOSURE = 3
-    DEFAULT_PASSWORD = "belgium"
+    DEFAULT_PASSWORD = '90d693d30a3fa06791eb43f7cc0f8a3af2687aec3c172cb0f690ae1d68382300'
 
     __BAD_LAYER = "Layer {} not defined. Use internally defined layer (eg Model.LAYER_*)"
 
@@ -899,3 +900,8 @@ class TimeSlotAvg:
         for l_id in data_layers.keys():
             # Get count if exists, else set to 1
             self.count[l_id] = { ov_id:self.count[l_id].get(ov_id,1) for ov_id in data_layers[l_id].overlays.keys() }
+
+def sha256(inpt:str) -> str:
+    m = hashlib.sha256()
+    m.update(inpt.encode())
+    return m.hexdigest()
